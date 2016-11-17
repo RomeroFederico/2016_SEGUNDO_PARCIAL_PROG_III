@@ -373,17 +373,17 @@ function MostrarGrillaEliminados()
 	$.ajax({
 		type: "POST",
 		url: "administracion.php",
-		dataType: "text",
+		dataType: "JSON",
 		data: form,
 		contentType: false,
 		processData: false,
 		async: true
 	})
-	.done(function (resultado) {
-		if (resultado == "ERROR")
-			alert("Ocurrio un problema al querer mostrar la grilla de eliminados.");
+	.done(function (objeto) {
+		if (objeto.exito)
+			$("#divGrilla").html(objeto.tabla);
 		else
-			$("#divGrilla").html(resultado);
+			alert(objeto.mensaje);
 	})
 	.fail(function (jqXHR, textStatus, errorThrown) {
 		alert(jqXHR.responseText + "\n" + textStatus + "\n" + errorThrown);
