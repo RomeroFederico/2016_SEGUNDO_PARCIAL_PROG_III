@@ -29,10 +29,10 @@
             return $this->_objetoPDO->prepare($sql);
         }
         
-         public function RetornarUltimoIdInsertado()
+        public function RetornarUltimoIdInsertado()
         { 
     		//IMPLEMENTAR...
-            return $this->_objetoPDO->lastInsertId(); 
+            return $this->_objetoPDO->lastInsertId();
         }
      
         public static function dameUnObjetoAcceso()

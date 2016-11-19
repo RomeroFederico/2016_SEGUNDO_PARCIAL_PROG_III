@@ -4,6 +4,7 @@
 
 	if (isset($_SESSION["Usuario"]))
 		header("location:Principal.php");
+	
 ?>
 
 <html>

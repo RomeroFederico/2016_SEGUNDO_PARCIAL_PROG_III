@@ -136,7 +136,7 @@
 
             $objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
 
-            $consulta = $objetoAccesoDatos->RetornarConsulta("SELECT * FROM usuarios");
+            $consulta = $objetoAccesoDatos->RetornarConsulta("SELECT * FROM usuarios ORDER BY id");
 
             $consulta->execute();
 

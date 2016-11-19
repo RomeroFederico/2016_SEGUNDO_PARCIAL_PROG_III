@@ -82,7 +82,7 @@ function AgregarUsuario()
 	var email = $("#txtEmail").val();
 	var password = $("#txtPassword").val();
 
-	if (!ValidarCampos(nombre, email, password))
+	if (!ValidarCampos(email, password, nombre))
 	{
 		alert("No se han completado los campos correctamente.");
 		return;
