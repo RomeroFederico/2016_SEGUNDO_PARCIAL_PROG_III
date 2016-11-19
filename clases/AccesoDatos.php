@@ -31,6 +31,7 @@
          public function RetornarUltimoIdInsertado()
         { 
     		//IMPLEMENTAR...
+            return $this->_objetoPDO->lastInsertId(); 
         }
      
         public static function dameUnObjetoAcceso()

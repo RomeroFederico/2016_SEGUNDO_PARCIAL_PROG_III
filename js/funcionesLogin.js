@@ -67,7 +67,9 @@ function Registrarse()
         $(".container").css("float", "center");
         $(".container").css("width", "30%");
 
-		$(".container").html(resultado);
+        var botonCancelar = '<input type="button" class="MiBotonUTN" onclick="CancelarRegistro()" value="Cancelar"/>';
+
+		$(".container").html(resultado + botonCancelar);
 	})
 	.fail(function (jqXHR, textStatus, errorThrown) {
 		alert(jqXHR.responseText + "\n" + textStatus + "\n" + errorThrown);
@@ -155,4 +157,9 @@ function SubirFoto()
 	.fail(function (jqXHR, textStatus, errorThrown) {
 		alert(jqXHR.responseText + "\n" + textStatus + "\n" + errorThrown);
 	});
+}
+
+function CancelarRegistro()
+{
+	window.location.href = "login.php";
 }

@@ -86,9 +86,21 @@
             return TRUE;
         }
 
-        public function ActualizarFoto()
+        public function ActualizarFoto($origen, $destino)
         {
     		//IMPLEMENTAR...
+
+            if (substr_count($origen, "tmp/") > 0)
+            {
+                if (Archivo::Mover($origen, $destino))
+                {
+                    if ($this->foto != "pordefecto.jpg")
+                        return Archivo::Borrar("fotos/" . $this->foto);
+                    return TRUE;
+                }
+                return FALSE;
+            }
+            return TRUE;
         }
 
         public static function Modificar($obj)
