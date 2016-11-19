@@ -150,8 +150,19 @@
 
         public static function TraerTodosLosPerfiles()
         {
-    		//IMPLEMENTAR... Preguntar en base a que se trae.
-            return array("administrador", "usuario", "invitado");
+    		//IMPLEMENTAR...
+            $perfiles = array();
+
+            $objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
+
+            $consulta = $objetoAccesoDatos->RetornarConsulta("SELECT DISTINCT perfil FROM usuarios");
+
+            $consulta->execute();
+
+            foreach ($consulta as $perfil)
+                array_push($perfiles, $perfil[0]);
+
+            return $perfiles;
         }
 
         public static function Borrar($id)
@@ -173,6 +184,31 @@
             }
 
             return TRUE;
+        }
+
+        public static function VerificarEmail($email, $id = 0)
+        {
+            //IMPLEMENTAR...
+            try
+            {
+                $objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
+
+                $consulta = $objetoAccesoDatos->RetornarConsulta("SELECT * FROM usuarios WHERE (email = :email AND id <> :id)");
+
+                $consulta->bindValue(':email', $email, PDO::PARAM_STR);
+                $consulta->bindValue(':id', $id, PDO::PARAM_INT);
+
+                $consulta->execute();
+
+                if ($consulta->rowCount() == 0)
+                    return TRUE;
+
+                return FALSE;
+            }
+            catch (Exception $e) 
+            {
+                return FALSE;
+            }
         }
     }
 
