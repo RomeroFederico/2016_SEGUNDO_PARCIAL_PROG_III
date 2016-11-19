@@ -223,9 +223,7 @@ function EliminarUsuario()
 		alert(objeto.mensaje);
 		if (objeto.exito)
 		{
-			$("#divFrm").html("");
-			$("#divFrm").css("border-style", "none");
-			$("#divFoto").html("");
+			$("#divAbm").html("");
 			MostrarGrilla();	
 		}
 	})

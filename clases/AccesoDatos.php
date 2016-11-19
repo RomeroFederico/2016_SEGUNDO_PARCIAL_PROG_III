@@ -10,7 +10,8 @@
             //IMPLEMENTAR...
             try 
             {
-                $this->_objetoPDO = new PDO('mysql:host=localhost;dbname=login_pdo;charset=utf8', 'root', '', array(PDO::ATTR_EMULATE_PREPARES => false,PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+                //$this->_objetoPDO = new PDO('mysql:host=localhost;dbname=login_pdo;charset=utf8', 'root', '', array(PDO::ATTR_EMULATE_PREPARES => false,PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+                $this->_objetoPDO = new PDO('mysql:host=sql105.eshost.com.ar;dbname=eshos_19178150_login_pdo;charset=utf8', 'eshos_19178150', 'bloodyte', array(PDO::ATTR_EMULATE_PREPARES => false,PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
                 $this->_objetoPDO->exec("SET CHARACTER SET utf8");
             } 
