@@ -392,5 +392,7 @@ function ValidarCampos(nombre, email, password = 0)
 {
 	if (nombre.length == 0 || email.length == 0 || (password !== 0 && password.length < 6))
 		return false;
+	else if (email.length >= 50 || nombre.length >= 25 || password.length >= 16)
+		return false;
 	return true;
 }
